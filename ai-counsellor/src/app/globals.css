@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Premium Cosmic Theme Palette */
+    --primary: #06b6d4;
+    /* Cyan 500 */
+    --primary-glow: rgba(6, 182, 212, 0.5);
+
+    --secondary: #d946ef;
+    /* Fuchsia 500 */
+    --secondary-glow: rgba(217, 70, 239, 0.5);
+
+    --background: #0B0E14;
+    /* Deep Space Navy */
+    --card-bg: rgba(30, 41, 59, 0.4);
+    /* Slate 800 with opacity */
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #f59e0b;
+
+    /* Glassmorphism Tokens */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --glass-blur: blur(12px);
+}
+
+body {
+    color: var(--text-main);
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--background) 70%);
+    background-attachment: fixed;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Global Utilities */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+    color: white;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border: var(--glass-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 5px var(--primary-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    100% {
+        box-shadow: 0 0 5px var(--primary-glow);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Global Glass Card */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 1rem;
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

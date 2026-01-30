@@ -1,0 +1,210 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: transparent;
+    /* Handled by global body gradient */
+}
+
+/* Navbar */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11, 14, 20, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 0;
+}
+
+.navInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLogo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, #fff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+    cursor: pointer;
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.userProfile:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Main Layout */
+.main {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    position: relative;
+}
+
+/* Progress Bar */
+.progressContainer {
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.progressBarBackground {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 2px;
+}
+
+.progressBarFill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--primary-glow);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagesWrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.stageItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.activeStage {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.completedStage {
+    opacity: 1;
+}
+
+.stageCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #0f172a;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.activeStage .stageCircle {
+    border-color: var(--primary);
+    background: rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 20px var(--primary-glow);
+    color: var(--primary);
+}
+
+.completedStage .stageCircle {
+    border-color: var(--success);
+    background: var(--success);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.stageName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    text-align: center;
+}
+
+/* Content Card */
+.contentCard {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Replaced with explicit border to avoid circular dependency in global if imported, but globals.css defines this too */
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cardHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cardTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+    color: #94a3b8;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.actionFooter {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: flex-end;
+}
